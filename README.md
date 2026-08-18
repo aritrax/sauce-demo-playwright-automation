@@ -130,8 +130,8 @@ The framework currently contains **26 automated test cases** covering Login, Inv
 | Login | 5 | 1 | 5 |
 | Inventory & Products | 7 | 2 | 7 |
 | Cart | 5 | 2 | 5 |
-| Checkout | 9 | 0 | 9 |
-| **Total** | **26** | **5** | **26** |
+| Checkout | 9 | 3 | 9 |
+| **Total** | **26** | **8** | **26** |
 
 ##  How to Run the Tests
 
