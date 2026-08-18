@@ -116,12 +116,12 @@ The framework currently contains **26 automated test cases** covering Login, Inv
 | TC18 | Verify Checkout page opens | `@regression` |
 | TC19 | Verify checkout information fields | `@regression` |
 | TC20 | Verify mandatory field validation | `@regression` |
-| TC21 | Verify checkout with valid customer information | `@regression` |
+| TC21 | Verify checkout with valid customer information | `@smoke @regression` |
 | TC22 | Verify product information on Checkout Overview | `@regression` |
 | TC23 | Verify payment/shipping information | `@regression` |
 | TC24 | Verify price calculation | `@regression` |
-| TC25 | Verify Finish order | `@regression` |
-| TC26 | Verify order confirmation | `@regression` |
+| TC25 | Verify Finish order | `@smoke @regression` |
+| TC26 | Verify order confirmation | `@smoke @regression` |
 
 ###  Test Suite Summary
 
