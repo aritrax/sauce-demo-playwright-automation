@@ -1,0 +1,39 @@
+[
+    {   
+        
+        "userName" : "standard_user" ,
+        "password" : "secret_sauce" ,
+        "expectedResult" : "success" ,
+        "testcase" : "TC01",
+        "tag": "@smoke @regression"
+    },
+    {
+        "userName" : "invalid_user" ,
+        "password" : "secret_sauce" ,
+        "expectedResult" : "invalid",
+        "testcase" : "TC02",
+        "tag": "@regression"
+    },
+    {   
+        
+        "userName" : "standard_user" ,
+        "password" : "wrong_password" ,
+        "expectedResult" : "failure" ,
+        "testcase" : "TC03",
+        "tag": "@regression"
+    },
+    {
+        "userName" : "locked_out_user" ,
+        "password" : "secret_sauce" ,
+        "expectedResult" : "locked",
+        "testcase" : "TC04",
+        "tag": "@regression"
+    },
+    {
+        "userName" : "" ,
+        "password" : "" ,
+        "expectedResult" : "blanked",
+        "testcase" : "TC05",
+        "tag": "@regression"
+    }
+]
