@@ -51,6 +51,9 @@ The framework follows the **Page Object Model (POM)** design pattern.
 ```text
 sauce-demo-playwright-automation/
 │
+├── fixtures/
+│   └── testFixtures.ts
+│
 ├── loginData/
 │   └── logindata.json
 │
@@ -69,7 +72,7 @@ sauce-demo-playwright-automation/
 │   └── 04_CheckoutPage.spec.ts
 │
 ├── .gitignore
-├── playwright.config2.ts
+├── playwright.config.ts
 └── README.md
 ```
 
