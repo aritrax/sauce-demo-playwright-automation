@@ -1,22 +1,18 @@
-import {test , expect} from "@playwright/test" ;
 import { POManager } from "../pageobject/POManger";
+import { test } from "../fixtures/testFixtures";
 
 import dataset from "../loginData/logindata.json" ;
-import { InventoryPage } from "../pageobject/InventoryPage";
-import { CartPage } from "../pageobject/CartPage";
 const validUser : any = dataset.find(data => data.expectedResult === "success");
 
-test.beforeEach(async({page})=>
+test.beforeEach(async({poManager})=>
 {
-    const poManager = new POManager(page);
     const loginPage = poManager.getLoginPage();
     await loginPage.goTo();
     await loginPage.validLogin(validUser.userName, validUser.password) ;
 })
 
-test("TC13 Add a single product to cart @smoke @regression" , async({page})=>
+test("TC13 Add a single product to cart @smoke @regression" , async({poManager})=>
 {
-    const poManager = new POManager(page) ;
     const inventoryPage = poManager.getInventoryPage()
     const cartPage = poManager.getCartPage()
     await inventoryPage.singleItemAddtoCart() ;
@@ -24,26 +20,23 @@ test("TC13 Add a single product to cart @smoke @regression" , async({page})=>
 
 })
 
-test("TC14 Add multiple products to cart @smoke @regression" , async({page})=>
+test("TC14 Add multiple products to cart @smoke @regression" , async({poManager})=>
 {
-    const poManager = new POManager(page) ;
     const inventoryPage = poManager.getInventoryPage()
     const cartPage = poManager.getCartPage()
     await inventoryPage.twoItemAddtoCart();
     await cartPage.verifyTwoItemInCart();
 })
 
-test("TC15 Verify cart count matches number of added products @regression", async({page})=>
+test("TC15 Verify cart count matches number of added products @regression", async({poManager})=>
 {   
-    const poManager = new POManager(page) ;
     const inventoryPage = poManager.getInventoryPage();
     await inventoryPage.threeItemAddtoCart();
 
 })
 
-test("TC16 Verify product details in cart @regression" , async({page})=> 
+test("TC16 Verify product details in cart @regression" , async({poManager})=> 
 {
-    const poManager = new POManager(page) ;
     const inventoryPage = poManager.getInventoryPage();
     const cartPage = poManager.getCartPage()
     await inventoryPage.singleItemAddtoCart() ;
@@ -51,9 +44,8 @@ test("TC16 Verify product details in cart @regression" , async({page})=>
 
 })
 
-test("TC17 — Remove product from cart @regression", async({page})=>
+test("TC17 — Remove product from cart @regression", async({poManager})=>
 {
-    const poManager = new POManager(page) ;
     const inventoryPage = poManager.getInventoryPage();
     const cartPage = poManager.getCartPage()
     await inventoryPage.singleItemAddtoCart() ;
