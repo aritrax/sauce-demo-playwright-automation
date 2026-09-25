@@ -1,14 +1,12 @@
-
-import {test , expect} from "@playwright/test" ;
-import { POManager } from "../pageobject/POManger";
+import { test } from "../fixtures/testFixtures";
+import { expect} from "@playwright/test" ;
 
 import dataset from "../loginData/logindata.json" ;
 
 for (const data of dataset)
 {
-    test(`${data.testcase} Login Test ${data.userName} ${data.tag}` , async({page})=>
+    test(`${data.testcase} Login Test ${data.userName} ${data.tag}` , async({poManager,page})=>
     {
-        const poManager = new POManager(page);
         const loginPage = poManager.getLoginPage();
         await loginPage.goTo();
         await loginPage.validLogin(data.userName,data.password) ;
