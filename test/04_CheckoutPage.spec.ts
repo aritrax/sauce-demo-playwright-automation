@@ -1,20 +1,17 @@
-import {test , expect} from "@playwright/test" ;
-import { POManager } from "../pageobject/POManger";
+import { test } from "../fixtures/testFixtures";
 
 import dataset from "../loginData/logindata.json" ;
 const validUser : any = dataset.find(data => data.expectedResult === "success");
 
-test.beforeEach(async({page})=>
+test.beforeEach(async({poManager})=>
 {
-    const poManager = new POManager(page);
     const loginPage = poManager.getLoginPage();
     await loginPage.goTo();
     await loginPage.validLogin(validUser.userName, validUser.password) ;
 })
 
-test("TC18 Verify Checkout page opens @regression", async({page})=>
+test("TC18 Verify Checkout page opens @regression", async({poManager})=>
 {
-    const poManager = new POManager(page);
     const inventoryPage =poManager.getInventoryPage();
     const cartPage =poManager.getCartPage() ;
     const checkoutPage = poManager.getCheckoutPage() ;
@@ -24,9 +21,8 @@ test("TC18 Verify Checkout page opens @regression", async({page})=>
 
 })
 
-test("TC19 Verify checkout information fields @regression" , async({page})=>
+test("TC19 Verify checkout information fields @regression" , async({poManager})=>
 {
-    const poManager = new POManager(page);
     const checkoutPage = poManager.getCheckoutPage() ;
     const inventoryPage =poManager.getInventoryPage();
     const cartPage =poManager.getCartPage() ;
@@ -35,9 +31,8 @@ test("TC19 Verify checkout information fields @regression" , async({page})=>
     await checkoutPage.verifyCheckoutInformationField()
 })
 
-test("TC20 Verify mandatory field validation @regression" , async ({page})=>
+test("TC20 Verify mandatory field validation @regression" , async ({poManager})=>
 {
-    const poManager = new POManager(page);
     const checkoutPage = poManager.getCheckoutPage() ;
     const inventoryPage =poManager.getInventoryPage();
     const cartPage =poManager.getCartPage() ;
@@ -46,9 +41,8 @@ test("TC20 Verify mandatory field validation @regression" , async ({page})=>
     await checkoutPage.verifyCheckoutInformationValidation()
 })
 
-test("TC21 Verify checkout with valid customer information @smoke @regression" , async ({page})=>
+test("TC21 Verify checkout with valid customer information @smoke @regression" , async ({poManager})=>
 {
-    const poManager = new POManager(page);
     const checkoutPage = poManager.getCheckoutPage() ;
     const inventoryPage =poManager.getInventoryPage();
     const cartPage =poManager.getCartPage() ;
@@ -57,9 +51,8 @@ test("TC21 Verify checkout with valid customer information @smoke @regression" ,
     await checkoutPage.checkoutwithValid("ABC","XYZ","711105") ; 
 })
 
-test("TC22 Verify product information on Checkout Overview @regression" , async ({page})=>
+test("TC22 Verify product information on Checkout Overview @regression" , async ({poManager})=>
 {
-    const poManager = new POManager(page);
     const checkoutPage = poManager.getCheckoutPage() ;
     const inventoryPage =poManager.getInventoryPage();
     const cartPage =poManager.getCartPage() ;
@@ -69,9 +62,8 @@ test("TC22 Verify product information on Checkout Overview @regression" , async 
     await checkoutPage.checkoutOverviewProduct() ;
 })
 
-test("TC23 Verify payment/shipping information @regression" , async ({page})=>
+test("TC23 Verify payment/shipping information @regression" , async ({poManager})=>
 {
-    const poManager = new POManager(page);
     const checkoutPage = poManager.getCheckoutPage() ;
     const inventoryPage =poManager.getInventoryPage();
     const cartPage =poManager.getCartPage() ;
@@ -82,9 +74,8 @@ test("TC23 Verify payment/shipping information @regression" , async ({page})=>
     await checkoutPage.checkoutOverviewPayment() ;
 })
 
-test("TC24 Verify price calculation @regression", async({page})=>
+test("TC24 Verify price calculation @regression", async({poManager})=>
 {
-    const poManager = new POManager(page);
     const checkoutPage = poManager.getCheckoutPage() ;
     const inventoryPage =poManager.getInventoryPage();
     const cartPage =poManager.getCartPage() ;
@@ -94,9 +85,8 @@ test("TC24 Verify price calculation @regression", async({page})=>
     await checkoutPage.checkoutPriceOverview() ;
 }) 
 
-test("TC25 Verify Finish order @smoke @regression", async({page})=>
+test("TC25 Verify Finish order @smoke @regression", async({poManager})=>
 {
-    const poManager = new POManager(page);
     const checkoutPage = poManager.getCheckoutPage() ;
     const inventoryPage =poManager.getInventoryPage();
     const cartPage =poManager.getCartPage() ;
@@ -106,9 +96,8 @@ test("TC25 Verify Finish order @smoke @regression", async({page})=>
     await checkoutPage.checkoutFinish() ;
 })
 
-test("TC26 Verify order confirmation @smoke @regression", async({page})=>
+test("TC26 Verify order confirmation @smoke @regression", async({poManager})=>
 {
-    const poManager = new POManager(page);
     const checkoutPage = poManager.getCheckoutPage() ;
     const inventoryPage =poManager.getInventoryPage();
     const cartPage =poManager.getCartPage() ;
