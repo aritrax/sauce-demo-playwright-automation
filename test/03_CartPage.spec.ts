@@ -1,4 +1,3 @@
-import { POManager } from "../pageobject/POManger";
 import { test } from "../fixtures/testFixtures";
 
 import dataset from "../loginData/logindata.json" ;
