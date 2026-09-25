@@ -47,9 +47,12 @@ The framework follows the **Page Object Model (POM)** design pattern.
 - Playwright assertions are used for validation.
 - Smoke and regression tags are used for selective test execution.
 
-##  Framework Structure
+## Framework Structure
 ```text
 sauce-demo-playwright-automation/
+│
+├── fixtures/
+│   └── testFixtures.ts
 │
 ├── loginData/
 │   └── logindata.json
@@ -69,9 +72,8 @@ sauce-demo-playwright-automation/
 │   └── 04_CheckoutPage.spec.ts
 │
 ├── .gitignore
-├── playwright.config2.ts
+├── playwright.config.ts
 └── README.md
-```
 
 ##  Test Coverage
 
