@@ -15,8 +15,8 @@ export class ProductDetailsPage
         this.page = page 
         this.backpack = page.locator("[data-test='inventory-item']").filter({ hasText: "Sauce Labs Backpack" });
         // product details 
-        this.productName = page.getByText("Sauce Labs Backpack") ;
-        this.productDes = page.locator("[data-test='inventory-item-desc']") ;
+        this.productName = page.locator(".inventory_details_name") ;
+        this.productDes = page.locator(".inventory_details_desc") ;
         this.productPrice = page.locator(".inventory_details_price") ;
         this.productCartButton = page.locator("#add-to-cart") ;
         this.productImage = page.locator("img.inventory_details_img")
