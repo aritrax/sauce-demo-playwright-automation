@@ -1,5 +1,7 @@
 import { test , expect } from "../fixtures/testFixtures";
 
+test.use({ storageState: { cookies: [], origins: [] } })
+
 import dataset from "../loginData/logindata.json" ;
 
 for (const data of dataset)

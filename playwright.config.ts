@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv'
+dotenv.config()
 
 export default defineConfig({
 
@@ -24,16 +26,22 @@ export default defineConfig({
         headless: true ,
         screenshot: 'only-on-failure',
         trace: 'on-first-retry',
+        baseURL : process.env.BASE_URL ,
     },
 
     projects: [
         {
+            name: 'setup',
+            testMatch: /auth\.setup\.ts/,
+        },
+        
+        {
             name: 'chromium',
-
             use: {
-                browserName: 'chromium',
-                viewport: { width: 720, height: 720 },
+                 ...devices['Desktop Chrome'],
+                storageState: '.auth/user.json',
             },
+            dependencies: ['setup'],
         },
     ],
 });
