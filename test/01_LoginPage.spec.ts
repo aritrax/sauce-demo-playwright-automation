@@ -1,13 +1,13 @@
-import { test } from "../fixtures/testFixtures";
-import { expect} from "@playwright/test" ;
+import { test , expect } from "../fixtures/testFixtures";
+//import { expect} from "@playwright/test" ;
 
 import dataset from "../loginData/logindata.json" ;
 
 for (const data of dataset)
 {
-    test(`${data.testcase} Login Test ${data.userName} ${data.tag}` , async({poManager,page})=>
+    test(`${data.testcase} Login Test ${data.userName} ${data.tag}` , async({loginPage,page})=>
     {
-        const loginPage = poManager.getLoginPage();
+        //const loginPage = poManager.getLoginPage();
         await loginPage.goTo();
         await loginPage.validLogin(data.userName,data.password) ;
         if (data.expectedResult === "success") 
