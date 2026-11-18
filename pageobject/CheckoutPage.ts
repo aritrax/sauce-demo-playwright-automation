@@ -44,7 +44,7 @@ export class CheckoutPage
 
     async verifyCheckoutInformationPage()
     {
-        await expect (this.page).toHaveURL("https://www.saucedemo.com/checkout-step-one.html") ;
+        await expect (this.page).toHaveURL(/checkout-step-one/) ;
     }
 
     async verifyCheckoutInformationField()
@@ -69,7 +69,7 @@ export class CheckoutPage
         await this.lastName.fill(lastName) ;
         await this.zipcode.fill(pinCode) ;
         await this.continueButton.click() ;
-        await expect (this.page).toHaveURL("https://www.saucedemo.com/checkout-step-two.html") ;    
+        await expect (this.page).toHaveURL(/checkout-step-two/) ;    
     }
 
     async checkoutOverviewProduct()

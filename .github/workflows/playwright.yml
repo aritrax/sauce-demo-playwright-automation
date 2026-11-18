@@ -15,6 +15,10 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps
       - run: npx playwright test
+        env:
+         BASE_URL: https://www.saucedemo.com
+         STANDARD_USER: standard_user
+         STANDARD_PASSWORD: secret_sauce      
       - uses: actions/upload-artifact@v4
         if: always()
         with:
