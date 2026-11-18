@@ -1,5 +1,4 @@
-import { test as base , expect } from "@playwright/test";
-import { POManager } from "../pageobject/POManger";
+import { test as base , expect } from "@playwright/test"
 import { LoginPage } from '../pageobject/LoginPage'
 import { InventoryPage } from '../pageobject/InventoryPage'
 import { CartPage } from '../pageobject/CartPage'
@@ -7,8 +6,7 @@ import { CheckoutPage } from '../pageobject/CheckoutPage'
 import { ProductDetailsPage } from '../pageobject/ProductDetailsPage'
 
 type Fixtures = {
-    poManager: POManager;
-    loginPage: LoginPage
+  loginPage: LoginPage
   inventoryPage: InventoryPage
   cartPage: CartPage
   checkoutPage: CheckoutPage
@@ -16,10 +14,6 @@ type Fixtures = {
 };
 
 export const test = base.extend<Fixtures>({
-    poManager: async ({ page }, use) => {
-        const poManager = new POManager(page);
-        await use(poManager);
-    },
     loginPage: async ({ page }, use) => {
     await use(new LoginPage(page))
     },
