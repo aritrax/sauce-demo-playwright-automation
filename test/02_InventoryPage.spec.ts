@@ -3,10 +3,9 @@ import { test } from "../fixtures/testFixtures";
 import dataset from "../loginData/logindata.json" ;
 const validUser : any = dataset.find(data => data.expectedResult === "success");
 
-test.beforeEach(async({loginPage})=>
+test.beforeEach(async({page})=>
 {
-    await loginPage.goTo();
-    await loginPage.validLogin(validUser.userName, validUser.password) ;
+    await page.goto('/inventory.html');
 })
 
 test("TC06 Verify user lands on Inventory page after login @smoke @regression" , async({inventoryPage})=>
