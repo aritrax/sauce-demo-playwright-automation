@@ -1,0 +1,29 @@
+{
+  "name": "sauce-demo-playwright-automation",
+  "version": "1.0.0",
+  "description": "A Playwright automation framework built using TypeScript and the Page Object Model (POM) to automate the Sauce Demo e-commerce application.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aritrax/sauce-demo-playwright-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aritrax/sauce-demo-playwright-automation/issues"
+  },
+  "homepage": "https://github.com/aritrax/sauce-demo-playwright-automation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "allure-playwright": "^3.15.0"
+  }
+}
