@@ -1,7 +1,8 @@
 import {expect, Locator, Page} from "@playwright/test" ;
 
 export class ProductDetailsPage
-{
+{   
+    page: Page 
     backpack: Locator;
     productName: Locator;
     productDes: Locator;
@@ -10,7 +11,8 @@ export class ProductDetailsPage
     productImage: Locator ; 
 
     constructor(page:Page)
-    {
+    {   
+        this.page = page 
         this.backpack = page.locator("[data-test='inventory-item']").filter({ hasText: "Sauce Labs Backpack" });
         // product details 
         this.productName = page.getByText("Sauce Labs Backpack") ;
@@ -23,6 +25,7 @@ export class ProductDetailsPage
     async viewProductDetails()
     {
         await this.backpack.locator(".inventory_item_name").click() ;
+        await expect(this.page).toHaveURL(/inventory-item\.html/)
         await expect(this.productName).toContainText("Sauce Labs Backpack") ;
         await expect(this.productDes).toBeVisible();
         await expect(this.productPrice).toBeVisible();
