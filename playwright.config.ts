@@ -21,7 +21,7 @@ export default defineConfig({
 
     // Shared browser settings
     use: {
-        headless: true,
+        headless: true ,
         screenshot: 'only-on-failure',
         trace: 'on-first-retry',
     },
